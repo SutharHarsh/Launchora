@@ -35,7 +35,7 @@ export default function SignInPage() {
     <div className="min-h-screen flex items-start justify-center py-10 px-4 bg-background text-foreground">
       <div className="w-full max-w-lg space-y-8">
 
-        <h1 className="text-2xl font-semibold">Sign In to Render</h1>
+        <h1 className="text-2xl font-semibold">Sign In to LaunchAura</h1>
 
         {/* OAuth Buttons */}
         <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center">
