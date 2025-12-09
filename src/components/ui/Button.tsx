@@ -10,6 +10,13 @@ Variants:
 - quiet (link)
 */
 
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "default" | "outline" | "icon" | "img" | "quiet" | "submit";
+  icon?: React.ReactNode;
+  imgSrc?: string;
+  square?: boolean;
+}
+
 export default function Button({
   variant = "default",
   icon,
@@ -18,7 +25,7 @@ export default function Button({
   square = false,
   className = "",
   ...props
-}) {
+}: ButtonProps) {
   const base =
     "inline-flex items-center justify-center font-medium transition-all duration-150 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
 
@@ -37,6 +44,9 @@ export default function Button({
 
     quiet:
       "bg-transparent text-primary-accent hover:underline px-2 py-1",
+
+    submit:
+      "bg-white text-black border border-transparent rounded-none px-6 py-2.5 text-sm font-medium hover:bg-gray-100 active:bg-gray-200 transition-colors",
   };
 
   const size = square ? "h-10 sm:h-11 w-full" : "h-10 sm:h-11";

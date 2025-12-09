@@ -1,153 +1,85 @@
-/* stylelint-disable at-rule-no-unknown */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/theme";
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
 
-/* ---------- Theme variables (light default + .dark) ---------- */
-@layer base {
-  :root {
-    /* Light theme (Render-like) — H SL-style values already used by your system */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-
-    --primary: 260 100% 98%;           /* white primary for dark -> inverted in dark theme */
-    --primary-foreground: 0 0% 9%;
-
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 220 70% 50%;
-
-    --muted-foreground: 0 0% 45.1%;
-    --primary-accent: 270 85% 44%;     /* purple-ish accent */
-
-    --radius: 0.5rem;
-    /* Map CSS variables to utility-friendly custom properties for easier usage */
-    --tw-bg: hsl(var(--background));
-    --tw-foreground: hsl(var(--foreground));
-    --tw-card: hsl(var(--card));
-    --tw-card-foreground: hsl(var(--card-foreground));
-    --tw-border: hsl(var(--border));
-    --tw-input: hsl(var(--input));
-    --tw-ring: hsl(var(--ring));
-    --tw-muted-foreground: hsl(var(--muted-foreground));
-    --tw-primary-accent: hsl(var(--primary-accent));
-  }
-
-  /* Dark theme matches Render style */
-  .dark {
-    --background: 0 0% 3.9%;           /* very dark */
-    --foreground: 0 0% 98%;
-
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 260 85% 40%;
-
-    --muted-foreground: 0 0% 63.9%;
-    --primary-accent: 262 91% 46.5%; /* Render purple ~ #7A2FF7 */
-    /* Map CSS variables to utility-friendly custom properties for easier usage */
-    --tw-bg: hsl(var(--background));
-    --tw-foreground: hsl(var(--foreground));
-    --tw-card: hsl(var(--card));
-    --tw-card-foreground: hsl(var(--card-foreground));
-    --tw-border: hsl(var(--border));
-    --tw-input: hsl(var(--input));
-    --tw-ring: hsl(var(--ring));
-    --tw-muted-foreground: hsl(var(--muted-foreground));
-    --tw-primary-accent: hsl(var(--primary-accent));
-  }
+@theme {
+  --color-primary-accent: #00e0a0;
 }
 
-/* Apply defaults across base */
-@layer base {
-  html, body, #root {
-    height: 100%;
-  }
-
-  body {
-    background-color: var(--tw-bg);
-    color: var(--tw-foreground);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* Border utility using our variable */
-  .border-border { border-color: var(--tw-border); }
-  .bg-card { background-color: var(--tw-card); }
-  .text-card-foreground { color: var(--tw-card-foreground); }
-  .bg-input { background-color: var(--tw-input); }
-  .text-muted-foreground { color: var(--tw-muted-foreground); }
-  .focus-ring {
-    box-shadow: 0 0 0 4px rgba(0,0,0,0); /* placeholder if needed */
-  }
-
-  /* small helper for primary accent color */
-  .text-primary-accent { color: var(--tw-primary-accent); }
-  .bg-primary-accent { background-color: var(--tw-primary-accent); }
-
-  /* ensure default border on everything if desired (optional) */
-  /* * { @apply border-border; } */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 3.9%;
+  --primary: 0 0% 9%;
+  --primary-foreground: 0 0% 98%;
+  --primary-accent: 165 100% 42%;
+  --secondary: 0 0% 96.1%;
+  --secondary-foreground: 0 0% 9%;
+  --muted: 0 0% 96.1%;
+  --muted-foreground: 0 0% 45.1%;
+  --accent: 0 0% 96.1%;
+  --accent-foreground: 0 0% 9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 89.8%;
+  --input: 0 0% 89.8%;
+  --ring: 0 0% 3.9%;
+  --radius: 0.5rem;
 }
 
-/* Utility classes to mimic Render height & spacing for OAuth buttons */
-@layer components {
-  .oauth-square {
-    border-color: var(--tw-border);
-    background-color: var(--tw-card);
-    color: var(--tw-card-foreground);
-    border-radius: 0;
-  }
-  .oauth-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem; /* gap-2 */
-    padding: 0.5rem 0.75rem; /* py-2 px-3 */
-    font-size: 0.875rem; /* text-sm */
-  }
-  @media (min-width: 640px) {
-    .oauth-icon { font-size: 1rem; }
-  }
-  .oauth-last-used {
-    height: 4px;
-    background-color: var(--tw-primary-accent);
-    border-radius: 0;
-  }
+.dark {
+  --background: 0 0% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 0 0% 9%;
+  --secondary: 0 0% 14.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 14.9%;
+  --muted-foreground: 0 0% 63.9%;
+  --accent: 0 0% 14.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 14.9%;
+  --input: 0 0% 14.9%;
+  --ring: 0 0% 83.1%;
+}
 
-  /* Sign in button (white square as in screenshot) */
-  .btn-primary {
-    background-color: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
-  }
+* {
+  border-color: hsl(var(--border));
+}
 
-  /* Input style */
-  .form-input {
-    width: 100%;
-    border-radius: var(--radius);
-    border-width: 1px;
-    border-style: solid;
-    border-color: var(--tw-border);
-    padding: 0.625rem 0.75rem; /* py-2.5 px-3 */
-    background-color: var(--tw-input);
-    color: var(--tw-foreground);
-  }
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
 
-  @media (min-width: 640px) {
-    .form-input { padding: 0.75rem 1rem; /* sm:py-3 sm:px-4 */ }
-  }
+.form-input {
+  width: 100%;
+  border-radius: 0;
+  background-color: hsl(var(--input));
+  border-width: 1px;
+  border-style: solid;
+  border-color: hsl(var(--border));
+  padding: 0.5rem 1rem;
+  color: hsl(var(--foreground));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
 
-  .form-input:focus {
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(122,47,247,0.08);
-    border-color: var(--tw-border);
-  }
-  .form-input::placeholder { color: var(--tw-muted-foreground); }
+.form-input:focus {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+.form-input::placeholder {
+  color: hsl(var(--muted-foreground));
 }

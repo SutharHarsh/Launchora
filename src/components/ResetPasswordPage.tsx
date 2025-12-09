@@ -23,7 +23,7 @@ export default function ResetPasswordPage() {
             />
           </div>
 
-          <Button variant="default" className="w-fit px-6">
+          <Button variant="submit" className="w-fit px-6">
             Reset Password
           </Button>
 
